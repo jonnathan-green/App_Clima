@@ -1,0 +1,18 @@
+70. y 71 = Realizar peticiones HTTP desde node 
+- request, Fetch recomendadas, pero falta mas configuracion
+- Axios es la mejor opcion para peticiones trabaja en base a promesas, mejor que los callbaqck 
+- https://reqres.in/ = Un enpoint de pruebas, com postman 
+- Status: 200 Significa que esta correcto 
+- SIEMPRE traer las peticiones HTTP con un try y cactch 
+
+73. Mapbox Seacrh API y token de acceso 
+- Geocoding es una API de busqueda de ubicaciones geograficas, Mapbox deja probar antes de la primera prueba y que cobren 
+
+74. Crear instancias Axio
+-En la url despues del signo de interrogacion, lo que significa esa informacion es conocidos como los parametros
+- un objeto literal como Access token para no tener errores es mejor dejarlo entre comillas = Busqueda.js
+
+75. Variables de entorno 
+- Son globales a lo largo de nuestra aplicacion, Es decir si se ocupa acceso al path en otro archivo, se puede extraer la informacion 
+
+
