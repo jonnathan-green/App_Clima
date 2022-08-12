@@ -10,9 +10,9 @@ class Busquedas {
 
     get paramsMapbox(){
         return{
-            'access_token': '',
-            'limit' : 5,
-            'lenguage' : 'es'
+           'access_token': process.env.MAPBOX_KEY,
+            'limit':5,
+            'language': 'es'
         }
     }
 
@@ -22,7 +22,7 @@ class Busquedas {
          //peticion http
 
          const intance = axios.create({
-            baseURL:`https://api.mapbox.com/geocoding/v5/mapbox.places/${lugar}.json`,
+            baseURL:`https://api.mapbox.com/geocoding/v5/mapbox.places/${ lugar }.json?`,
             params: this.paramsMapbox
          })
          // Retornar los lugares
@@ -40,7 +40,9 @@ class Busquedas {
 
 }
 
+//https://api.mapbox.com/geocoding/v5/mapbox.places/madrid.json?&proximity=-73.990593%2C40.740121&types=place%2Cpostcode%2Caddress%2Ccountry%2Cregion%2Cdistrict%2Clocality%2Cneighborhood%2Cpoi&&
 
 
 
 module.exports = Busquedas;
+
