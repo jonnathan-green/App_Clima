@@ -11,11 +11,15 @@
 74. Crear instancias Axio
 -En la url despues del signo de interrogacion, lo que significa esa informacion es conocidos como los parametros
 - un objeto literal como Access token para no tener errores es mejor dejarlo entre comillas = Busqueda.js
+- El archivo Env, Se crea para poder guardar nuestras KEYS, De las Apis consumidas.
 
 75. Variables de entorno 
 - Son globales a lo largo de nuestra aplicacion, Es decir si se ocupa acceso al path en otro archivo, se puede extraer la informacion 
 
 76. 
 -({}) Regresa un objeto de forma implicita 
+
+77. OpenWeather- Informacion del clima 
+- Consumiendo esta Api para obtener el clima, tambien se puede obtener la ubicacion 
 
 
