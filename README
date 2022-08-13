@@ -14,6 +14,8 @@
 
 75. Variables de entorno 
 - Son globales a lo largo de nuestra aplicacion, Es decir si se ocupa acceso al path en otro archivo, se puede extraer la informacion 
--
+
+76. 
+-({}) Regresa un objeto de forma implicita 
 
 

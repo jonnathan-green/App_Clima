@@ -69,13 +69,13 @@ const pausa = async  () => {
         return desc;
  }
 
- const listadoTareasBorrar = async (tareas = []) =>{
-        const choices = tareas.map( (tarea, i) =>{
+ const listarLugares = async (lugares = []) =>{
+        const choices = lugares.map( (lugar, i) =>{
 
                 const index = `${i + 1}.`.cyan
                 return {
-                        value: tarea.id,
-                        name:`${index} ${tarea.desc}`
+                        value: lugar.id,
+                        name:`${index} ${lugar.nombre}`
                 }
         })
 
@@ -88,7 +88,7 @@ const pausa = async  () => {
         {
                 type: 'list',
                 name: 'id',
-                message: 'Borrar',
+                message: 'Seleccione lugar: ',
                 choices
         }
         ]       
@@ -136,7 +136,7 @@ const pausa = async  () => {
     inquirerMenu,
     pausa,
     leerInput,
-    listadoTareasBorrar,
+    listarLugares,
     confirmar,
     mostrarListadoCheklist
 

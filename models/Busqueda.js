@@ -11,7 +11,7 @@ class Busquedas {
     get paramsMapbox(){
         return{
            'access_token': process.env.MAPBOX_KEY,
-            'limit':5,
+            'limit':10,
             'language': 'es'
         }
     }
@@ -27,11 +27,16 @@ class Busquedas {
          })
          // Retornar los lugares
          const resp = await intance.get();
-         console.log(resp.data)
-         
-      
+        return resp.data.features.map( lugar => ({
 
-      return[]
+            id: lugar.id,
+            nombre: lugar.place_name,
+            lng: lugar.center[0],
+            lat: lugar.center[1],
+
+        }));
+
+     
         } catch (error) {
             return[]
         }
@@ -39,9 +44,6 @@ class Busquedas {
     }
 
 }
-
-//https://api.mapbox.com/geocoding/v5/mapbox.places/madrid.json?&proximity=-73.990593%2C40.740121&types=place%2Cpostcode%2Caddress%2Ccountry%2Cregion%2Cdistrict%2Clocality%2Cneighborhood%2Cpoi&&
-
 
 
 module.exports = Busquedas;
