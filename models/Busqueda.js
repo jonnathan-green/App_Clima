@@ -1,8 +1,12 @@
-const axios = require('axios')
+const fs = require('fs');
+
+const axios = require('axios');
+
 
 class Busquedas {
 
-    historial = ['Bogota','Madrid','Santiago de chile' ]
+    historial = [] ;
+    dbPath = './DB/database.json'
 
     constructor (){
         // Todo: leer si existe
@@ -80,9 +84,37 @@ class Busquedas {
         }
     }
 
+    agregarHistorial(lugar = ''){
+        // Prevenir duplicados 
+        if(this.historial.includes(lugar.toLocaleLowerCase() )){
+            return;
+        }
+
+
+        this.historial.unshift(lugar.toLocaleLowerCase() )
+
+        // Gracar en DB
+        this.guardarDB();
+
+    }
+
+    guardarDB(){
+        const payload = {
+            historial: this.historial
+        }
+
+        fs.writeFileSync(this.dbPath, JSON.stringify(payload))
+
+    }
+
+    leerDB(){
+
+    }
+ 
+
+
 }
 
 
 module.exports = Busquedas;
 
-//https://api.openweathermap.org/data/2.5/weather?lat=4.59889&lon=-74.08083&appid=ceae8d2043b6bf8e75986ed5af623a9b&units=metric&lang=es

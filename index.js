@@ -23,8 +23,12 @@ do{
             
             // Seleccionar el lugar
             const id = await listarLugares(lugares)
+            if (id === '0') continue;
             const lugarSel = lugares.find(l => l.id === id);
             
+            // Guardar en DB 
+
+            busquedas.agregarHistorial(lugarSel.nombre)
 
             //Clima
 
@@ -44,6 +48,14 @@ do{
     
         default:
             break;
+
+            case 2:
+                busquedas.historial.forEach((lugar, i) =>{
+                    const index = `${i + 1}.`.cyan;
+                    console.log(`${index} ${lugar}`)
+                })
+
+             break;
     }
     
 
