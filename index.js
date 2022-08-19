@@ -50,7 +50,7 @@ do{
             break;
 
             case 2:
-                busquedas.historial.forEach((lugar, i) =>{
+                busquedas.historialCapitalizado.forEach((lugar, i) =>{
                     const index = `${i + 1}.`.cyan;
                     console.log(`${index} ${lugar}`)
                 })

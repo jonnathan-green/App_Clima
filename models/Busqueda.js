@@ -10,6 +10,7 @@ class Busquedas {
 
     constructor (){
         // Todo: leer si existe
+        this.leerDB();
     }
 
     get paramsMapbox(){
@@ -26,6 +27,15 @@ class Busquedas {
             units: 'metric',
             lang: 'es'
         }
+    }
+
+    get historialCapitalizado(){
+        return this.historial.map( lugar =>{
+
+            let palabras = lugar.split('');
+            palabras = palabras.map(p => p[0].toLowerCase() + p.substring(1));
+            return palabras.join('')
+                }); 
     }
 
 
@@ -90,6 +100,8 @@ class Busquedas {
             return;
         }
 
+        this.historial = this.historial.splice(0,5);
+
 
         this.historial.unshift(lugar.toLocaleLowerCase() )
 
@@ -108,6 +120,12 @@ class Busquedas {
     }
 
     leerDB(){
+        if(!fs.existsSync(this.dbPath))return;
+
+        const info = fs.readFileSync(this.dbPath, {enconding: 'utf-8'});
+        const data = JSON.parse(info);
+
+        this.historial = data.historial;
 
     }
  
